@@ -2,7 +2,7 @@ import requests
 import pandas as pd
 import lxml.html
 
-base_links = pd.read_csv("dados/base-links_calendar-trends.csv")
+base_links = pd.read_csv("data/base-links_calendar-trends.csv")
 
 def get_events(user_input_month, user_input_lang):
 
