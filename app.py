@@ -10,6 +10,7 @@ def hello_world():
 	arquivo = open("templates/home.html")
 	return arquivo.read()
 
+@app.route("/calendar")
 def display_events():
 	events = get_events("maio", "pt")
 	return f"""
