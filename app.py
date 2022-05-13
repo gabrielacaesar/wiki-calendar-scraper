@@ -9,3 +9,9 @@ app = Flask(__name__)
 def hello_world():
 	arquivo = open("templates/home.html")
 	return arquivo.read()
+
+def display_events():
+	events = get_events("maio", "pt")
+	return f"""
+	{events}
+	"""
