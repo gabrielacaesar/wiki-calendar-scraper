@@ -28,7 +28,7 @@ def display_pt():
 
 @app.route("/de-juni")
 def display_de():
-	events = get_events("juni", "de")
+	events = get_events("Juni", "de")
 	html_events = events.to_html()
 	return f""""
 	{html_events}
