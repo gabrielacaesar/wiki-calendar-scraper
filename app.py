@@ -10,13 +10,9 @@ def hello_world():
 	arquivo = open("templates/home.html")
 	return arquivo.read()
 
-
-months = ["june", "july", "august"]
-
-for month in months:
-f"""@app.route('/en-{month}')"""
-f"""def display_en-{month}():"""
-	f"""events = get_events({month}, 'en')"""
+@app.route("/en-june")
+def display_es():
+	events = get_events("june", "en")
 	html_events = events.to_html()
 	return f""""
 	{html_events}
