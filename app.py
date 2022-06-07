@@ -14,5 +14,5 @@ def hello_world():
 def display_events():
 	events = get_events("maio", "pt")
 	return f"""
-	{events}
+	<p>{events}</p>
 	"""
