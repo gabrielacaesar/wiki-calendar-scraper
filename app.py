@@ -11,7 +11,7 @@ def hello_world():
 	return arquivo.read()
 
 @app.route("/en-june")
-def display_es():
+def display_en():
 	events = get_events("june", "en")
 	html_events = events.to_html()
 	return f""""
