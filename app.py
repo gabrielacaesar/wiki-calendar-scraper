@@ -12,9 +12,34 @@ def hello_world():
 
 @app.route("/en")
 def display_en():
-	events = get_events("maio", "en")
-	return f"""
-	<p>{events}</p>
+	events = get_events("june", "en")
+	html_events = events.to_html()
+	return f""""
+	{html_events}
+	"""
+
+@app.route("/pt")
+def display_en():
+	events = get_events("junho", "pt")
+	html_events = events.to_html()
+	return f""""
+	{html_events}
+	"""
+
+@app.route("/de")
+def display_en():
+	events = get_events("juni", "de")
+	html_events = events.to_html()
+	return f""""
+	{html_events}
+	"""
+
+@app.route("/es")
+def display_en():
+	events = get_events("junio", "es")
+	html_events = events.to_html()
+	return f""""
+	{html_events}
 	"""
 
 @app.route("/calendar")
