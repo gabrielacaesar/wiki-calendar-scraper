@@ -19,7 +19,7 @@ def display_en():
 	"""
 
 @app.route("/pt")
-def display_en():
+def display_pt():
 	events = get_events("junho", "pt")
 	html_events = events.to_html()
 	return f""""
@@ -27,7 +27,7 @@ def display_en():
 	"""
 
 @app.route("/de")
-def display_en():
+def display_de():
 	events = get_events("juni", "de")
 	html_events = events.to_html()
 	return f""""
@@ -35,7 +35,7 @@ def display_en():
 	"""
 
 @app.route("/es")
-def display_en():
+def display_es():
 	events = get_events("junio", "es")
 	html_events = events.to_html()
 	return f""""
