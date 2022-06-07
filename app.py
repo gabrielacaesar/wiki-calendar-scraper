@@ -1,6 +1,6 @@
 import os
 from flask import Flask, request
-from calender_scraper import get_events
+from scraper_calendar import get_events
 
 # coisas do site
 app = Flask(__name__)
