@@ -12,7 +12,7 @@ def hello_world():
 
 @app.route("/en-june")
 def display_en():
-	events = get_events("june", "en")
+	events = get_events("June", "en")
 	html_events = events.to_html()
 	return f""""
 	{html_events}
