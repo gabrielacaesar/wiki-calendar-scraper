@@ -15,7 +15,7 @@ months = ["june", "july", "august"]
 
 for month in months:
 f"""@app.route('/en-{month}')"""
-def display_en():
+f"""def display_en-{month}():"""
 	f"""events = get_events({month}, 'en')"""
 	html_events = events.to_html()
 	return f""""
