@@ -20,8 +20,7 @@ def display_en():
 @app.route("/calendar")
 def display_events():
 	events = get_events("maio", "pt")
-	return f"""
-	<tr>
-	<td>{events[0]}</td>
-	</tr>
+	html_events = events.to_html()
+	return f""""
+	{html_events}
 	"""
