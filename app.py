@@ -11,7 +11,7 @@ def hello_world():
 	arquivo = open("templates/home.html")
 	return arquivo.read()
 
-@app.route("/eventos", methods=['GET'])
+@app.route("/events", methods=['GET'])
 def get_content():
     @after_this_request
     def add_header(response):
