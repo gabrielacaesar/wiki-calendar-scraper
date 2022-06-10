@@ -1,7 +1,7 @@
 import os
+import flask, json
 from flask import Flask, request, jsonify, after_this_request
 from scraper_calendar import get_events
-import flask, json
 
 # coisas do site
 app = Flask(__name__)
@@ -20,6 +20,8 @@ def get_content():
         
     month = str(request.args['month'])
     lang = str(request.args['lang'])
+    print(month)
+    print(lang)
 
     try:
         output = get_events(month, lang)
