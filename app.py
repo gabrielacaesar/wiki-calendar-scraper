@@ -29,7 +29,7 @@ def get_content():
     except ValueError as e:
         return {"error":1}
 
-    return jsonify(output)
+    return output.to_json()
 
 @app.route("/en-june")
 def display_en():
