@@ -36,5 +36,6 @@ def get_events(user_input_month, user_input_lang):
     dic_events = {'event': agendas,
                 'url': date_agendas}
     df_events = pd.DataFrame(dic_events)
+    json_events = df_events.to_json(orient="index")
     
-  return df_events
+  return json_events
