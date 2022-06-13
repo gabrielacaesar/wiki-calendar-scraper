@@ -2,6 +2,7 @@ import os
 import flask, json
 from flask import Flask, request, jsonify, after_this_request
 from scraper_calendar import get_events
+from github import Github
 
 # coisas do site
 app = Flask(__name__)
@@ -29,7 +30,7 @@ def get_content():
     except ValueError as e:
         return {"error":1}
 
-    return output.to_json()
+    return output
 
 @app.route("/en-june")
 def display_en():
@@ -70,3 +71,21 @@ def display_events():
 	return f""""
 	{html_events}
 	"""
+
+### tentativa com aula do lucas
+TOKEN_GITHUB = os.environ["API_KEY"]
+
+# ATUALIZANDO ARQUIVO JSON NO GITHUB
+g = Github(TOKEN_GITHUB) 
+
+# repositorio
+repo = g.get_repo("gabrielacaesar/wiki-calendar-scraper")
+
+# local do arquivo no repositorio
+contents = repo.get_contents("data/pt-content-01.json")
+
+# atualizando arquivo 
+repo.update_file(contents.path, 'Dados atualizados', get_events(janeiro, pt), contents.sha, branch="main")
+print('5. Arquivo atualizado no GitHub')
+
+print('--- FIM ---')
