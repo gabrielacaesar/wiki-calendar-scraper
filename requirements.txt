@@ -3,3 +3,4 @@ gunicorn
 requests
 pandas
 lxml
+PyGithub==1.55
