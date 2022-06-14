@@ -73,7 +73,7 @@ def display_events():
 	"""
 
 ### tentativa com aula do lucas
-TOKEN_GITHUB = os.environ["API_KEY"]
+TOKEN_GITHUB = ${{ secrets.GITHUB_TOKEN }}
 
 # ATUALIZANDO ARQUIVO JSON NO GITHUB
 g = Github(TOKEN_GITHUB) 
