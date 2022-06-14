@@ -73,19 +73,19 @@ def display_events():
 	"""
 
 ### tentativa com aula do lucas
-TOKEN_GITHUB = ${{ secrets.GITHUB_TOKEN }}
+# TOKEN_GITHUB = ${{ secrets.GITHUB_TOKEN }}
 
 # ATUALIZANDO ARQUIVO JSON NO GITHUB
-g = Github(TOKEN_GITHUB) 
+# g = Github(TOKEN_GITHUB) 
 
 # repositorio
-repo = g.get_repo("gabrielacaesar/wiki-calendar-scraper")
+# repo = g.get_repo("gabrielacaesar/wiki-calendar-scraper")
 
 # local do arquivo no repositorio
-contents = repo.get_contents("data/pt-content-01.json")
+# contents = repo.get_contents("data/pt-content-01.json")
 
 # atualizando arquivo 
-repo.update_file(contents.path, 'Dados atualizados', get_events(janeiro, pt), contents.sha, branch="main")
-print('5. Arquivo atualizado no GitHub')
+# repo.update_file(contents.path, 'Dados atualizados', get_events(janeiro, pt), contents.sha, branch="main")
+# print('5. Arquivo atualizado no GitHub')
 
-print('--- FIM ---')
+# print('--- FIM ---')
