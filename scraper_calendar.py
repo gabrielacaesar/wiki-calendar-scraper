@@ -1,20 +1,21 @@
 import requests
 import pandas as pd
 import lxml.html
+import json
 
-base_links = pd.read_csv("data/base-links_calendar-trends.csv")
+base_links = pd.read_csv("base-links_calendar-trends.csv")
 
 def get_events(user_input_month, user_input_lang):
 
   filter = base_links['url'].str.contains(f'{user_input_month}') & base_links['language'].str.contains(f'{user_input_lang}')
 
   filtered_base_links = base_links.loc[filter]
-  date_range = filtered_base_links['url'].tolist()
+  urls = filtered_base_links['url'].tolist()
   agendas = []
-  date_agendas = []
+  url_agendas = []
   
-  for date in date_range:
-    page = requests.get(date)
+  for url in urls:
+    page = requests.get(url)
     doc = lxml.html.fromstring(page.content)
     
     if user_input_lang == 'pt':
@@ -31,11 +32,17 @@ def get_events(user_input_month, user_input_lang):
     for evento in eventos:
       agenda = evento.text_content()
       agendas.append(agenda)
-      date_agendas.append(date)
+      url_agendas.append(url)
       
     dic_events = {'event': agendas,
-                'url': date_agendas}
+                'url': url_agendas}
     df_events = pd.DataFrame(dic_events)
+
+    df_events['date'] = df_events['url'].str.replace(f'http://{user_input_lang}.wikipedia.org/wiki/', '')
+    df_events['date'] = df_events['date'].str.replace('_', ' ')
+
+    #arquivo = df_events.to_csv(f"content_pt_{user_input_month}.csv", encoding='utf-8', index=False)
     #json_events = df_events.to_json(orient="index", force_ascii=False)
+    #content_pt_01 = json.dumps(json_events)
     
   return df_events
