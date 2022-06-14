@@ -1,38 +1,24 @@
 // variavel
 
-let optionLanguage = document.querySelector('.language')
-let optionMonth = document.querySelector('.month')
+let optionLanguage = document.querySelector('#language')
+let optionMonth = document.querySelector('#month')
+
+console.log(optionLanguage.target.value)
+console.log(optionMonth)
 
 // executa funcao considerando variavel
 optionLanguage.addEventListener('change', definirOutput)
 optionMonth.addEventListener('change', definirOutput)
 
-// funcao
+// fetch
 function definirOutput(optionMonth, optionLanguage){
 
+  console.log(optionLanguage.value)
+  console.log(optionMonth.value)
   // dados com endpoint
-  let json = JSON.parse(`https://wiki-calendar-scraper.herokuapp.com/events?month=${optionMonth.value}&lang=${optionLanguage.value}`)
-  
-  // para cada linha do json vamos...
-  for (let row of json) {
-    console.log(row)  
-    // considera o que o usuario colocou de mes e linguage
-    if (row.month == optionMonth.value && row.language == optionLanguage.value){
-      // retorna o df considerando condicao
-      let result = df_events
-      break
-    }
-  }
-}
+  let url = 'https://raw.githubusercontent.com/gabrielacaesar/wiki-calendar-scraper/main/data/' + optionLanguage.target.value + "-" + optionMonth.target.value + '-content.json?token=GHSAT0AAAAAABTCSP6ODVDWSZ63YZX6H2YUYVI4KZA'
 
-
-// tentativa dois 
-// com conteudo do video do vinicius
-function definirOutput(optionMonth, optionLanguage){
-
-  // dados com endpoint
-  let url = 'https://wiki-calendar-scraper.herokuapp.com/events?month=June&lang=en'
-
+  console.log(url)
   // esperar carregar para o console.log
   fetch(url).then(
     function(resposta){
@@ -40,14 +26,4 @@ function definirOutput(optionMonth, optionLanguage){
     }
   )
 
-  // para cada linha do json vamos...
-  for (let row of json) {
-    console.log(row)  
-    // considera o que o usuario colocou de mes e linguage
-    if (row.month == optionMonth.value && row.language == optionLanguage.value){
-      // retorna o df considerando condicao
-      let result = df_events
-      break
-    }
-  }
 }
