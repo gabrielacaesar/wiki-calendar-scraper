@@ -1,3 +1,4 @@
+from pandas._libs import index
 import requests
 import pandas as pd
 import lxml.html
@@ -5,16 +6,21 @@ import json
 
 base_links = pd.read_csv("base-links_calendar-trends.csv")
 
+month_en = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+month_de = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"]
+month_pt = ["janeiro", "fevereiro", "mar%C3%A7o", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"]
+month_es = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"]
+
 def get_events(user_input_month, user_input_lang):
 
   filter = base_links['url'].str.contains(f'{user_input_month}') & base_links['language'].str.contains(f'{user_input_lang}')
 
   filtered_base_links = base_links.loc[filter]
-  urls = filtered_base_links['url'].tolist()
+  url_list = filtered_base_links['url'].tolist()
   agendas = []
   url_agendas = []
   
-  for url in urls:
+  for url in url_list:
     page = requests.get(url)
     doc = lxml.html.fromstring(page.content)
     
@@ -39,10 +45,25 @@ def get_events(user_input_month, user_input_lang):
     df_events = pd.DataFrame(dic_events)
 
     df_events['date'] = df_events['url'].str.replace(f'http://{user_input_lang}.wikipedia.org/wiki/', '')
-    df_events['date'] = df_events['date'].str.replace('_', ' ')
 
-    #arquivo = df_events.to_csv(f"content_pt_{user_input_month}.csv", encoding='utf-8', index=False)
-    #json_events = df_events.to_json(orient="index", force_ascii=False)
+    if user_input_lang in ['en', 'de']:
+      df_events['date'] = df_events['date'].str.replace('_', ' ')
+      df_events[['month', 'day']] = df_events['date'].str.split(expand = True)
+    elif user_input_lang in ['pt', 'es']:
+      df_events['date'] = df_events['date'].str.replace('_de_', ' ')
+      df_events[['day', 'month']] = df_events['date'].str.split(expand = True)
+    else:
+      print('other lang')
+
+    df_events['month_id'] = month_es.index(f"{user_input_month}") + 1
+
+    df_events['day'] = df_events['day'].str.pad(width=2, fillchar='0')
+    df_events['month_id'] = df_events['month_id'].astype(str).str.pad(width=2, fillchar='0')
+    df_events['format_date'] = df_events['month_id'].astype(str) + "/" + df_events['day'].astype(str)
+    df_events.drop(['month', 'day'], inplace=True, axis=1) 
+
+    #arquivo = df_events.to_csv(f"content_{user_input_lang}_{user_input_month}.csv", encoding='utf-8', index=False)
+    json_events = df_events.to_json(f"{user_input_lang}-{user_input_month}-content.json", orient="index", date_format="iso")
     #content_pt_01 = json.dumps(json_events)
     
-  return df_events
+  return json_events
