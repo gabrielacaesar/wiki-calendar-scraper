@@ -6,13 +6,18 @@ let optionMonth = document.querySelector('#month')
 optionLanguage.addEventListener('change', definirOutput)
 optionMonth.addEventListener('change', definirOutput)
 
+lang_list = 
+
 // fetch
 function definirOutput() {
 
+  let url;
+  
+  if (optionLanguage.value in ['en', 'pt', 'de', 'es']){
+  
   let url = `https://raw.githubusercontent.com/gabrielacaesar/wiki-calendar-scraper/main/data/${optionLanguage.value}-${optionMonth.value}-content.json`;
   console.log(url)
-
-  // esperar carregar para o console.log
+      // esperar carregar para o console.log
   fetch(url).then(
     function(resposta){
       return resposta.json()
@@ -31,5 +36,7 @@ function definirOutput() {
       console.log(data);
     }
   )
-
+  }else{
+    console.log('oi')
+  }
 }
