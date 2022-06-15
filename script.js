@@ -6,8 +6,6 @@ let optionMonth = document.querySelector('#month')
 optionLanguage.addEventListener('change', definirOutput)
 optionMonth.addEventListener('change', definirOutput)
 
-lang_list = 
-
 // fetch
 function definirOutput() {
   
