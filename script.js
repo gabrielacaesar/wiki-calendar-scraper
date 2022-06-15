@@ -2,10 +2,6 @@
 let optionLanguage = document.querySelector('#language')
 let optionMonth = document.querySelector('#month')
 
-// executa funcao considerando variavel
-optionLanguage.addEventListener('change', definirOutput)
-optionMonth.addEventListener('change', definirOutput)
-
 // fetch
 function definirOutput() {
   
@@ -36,3 +32,7 @@ function definirOutput() {
     console.log('oi')
   }
 }
+
+// executa funcao considerando variavel
+optionLanguage.addEventListener('change', definirOutput)
+optionMonth.addEventListener('change', definirOutput)
