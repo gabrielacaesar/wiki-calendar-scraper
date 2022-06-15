@@ -1,7 +1,7 @@
 # Efemerides
 
 ### Por que
-Este projeto foi inspirado no livro "Datas e fatos", um dos primeiros que comprei quando decidi estudar jornalismo. E, alem de abordar o factual, uma das missoes do jornalismo eh explicar, lembrar, destacar fatos e informacoes. As efemerides ajudam os jornalistas nisso. A pauta ganha ainda forca para ter mais um porque de ser publicada.
+Este projeto foi inspirado no livro "Datas e fatos - 365 dias de historia para alegria dos pauteiros", um dos primeiros que comprei quando decidi estudar jornalismo. E, alem de abordar o factual, uma das missoes do jornalismo eh explicar, lembrar, destacar fatos e informacoes. As efemerides ajudam os jornalistas nisso. A pauta ganha ainda forca para ter mais um porque de ser publicada.
 
 ### Quem
 Este projeto foi desenvolvido por Gabriela Caesar para o trabalho no Google Trends e a pos no Insper. Ele tambem contou com a ajuda do professor Tiago Maranhao (@tiagombp).
