@@ -41,6 +41,12 @@ function definirOutput() {
     }
   ).then(
     function(data) {
+      let html = '';
+      for (let row of data){
+        let efemeride = '<li><a href="' + row.url + '">' + row.event + '</a></li>';
+        html += efemeride
+      }
+      document.querySelector('ul').innerHTML = html
       console.log(data);
     }
   )
