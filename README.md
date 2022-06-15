@@ -5,7 +5,7 @@ Este projeto foi inspirado no livro "Datas e fatos - 365 dias de historia para a
 
 E, alem de abordar o factual, uma das missoes do jornalismo eh explicar, lembrar, destacar fatos e informacoes. As efemerides ajudam os jornalistas nisso. A pauta ganha ainda forca para ter mais um porque de ser publicada.
 
-Por isso, este projeto reune informacoes coletadas da Wikipedia sobre fatos e datas comemorativas. Reforcando: este projeto nao checa o conteudo, mas apenas reune e facilita o acesso ao que esta disponivel na plataforma colaborativa.
+Este projeto nao checa o conteudo, mas apenas reune e facilita o acesso ao conteudo de fatos e datas comemorativas, disponivel na plataforma colaborativa.
 
 ### Quem
 Este projeto foi desenvolvido por Gabriela Caesar para o trabalho no Google Trends e a pos no Insper. Ele tambem contou com a ajuda do professor Tiago Maranhao (@tiagombp).
