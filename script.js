@@ -15,7 +15,7 @@ function definirOutput() {
   
   if (optionLanguage.value in ['en', 'pt', 'de', 'es']){
   
-  let url = `https://raw.githubusercontent.com/gabrielacaesar/wiki-calendar-scraper/main/data/${optionLanguage.value}-${optionMonth.value}-content.json`;
+  let url = `./data/${optionLanguage.value}-${optionMonth.value}-content.json`;
   console.log(url)
       // esperar carregar para o console.log
   fetch(url).then(
