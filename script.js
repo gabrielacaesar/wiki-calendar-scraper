@@ -5,7 +5,7 @@ let optionMonth = document.querySelector('#month')
 // fetch
 function definirOutput() {
   
-  if (['en', 'pt', 'de', 'es'].includes(optionLanguage.value){
+  if (['en', 'pt', 'de', 'es'].includes(optionLanguage.value)){
   
   let url = `./data/${optionLanguage.value}-${optionMonth.value}-content.json`;
   console.log(url)
@@ -19,8 +19,10 @@ function definirOutput() {
       let html = '';
       // insere dados em cada linha com o respectivo link
       // adiciona cada linha ao html
-      for (let row of data){
-        let efemeride = '<li><a href="' + row.url + '">' + row.event + '</a></li>';
+      for (let key of Object.keys(data)){
+        let int_key = parseInt(key)
+        let row = data[int_key]
+        let efemeride = '<li><a href="' + row.url + '">' + row.date + '</a> - ' + row.event + '</li>';
         html += efemeride
       }
       // insere dentro do ul no html
