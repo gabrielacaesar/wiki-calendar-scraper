@@ -55,7 +55,7 @@ def get_events(user_input_month, user_input_lang):
     else:
       print('other lang')
 
-    df_events['month_id'] = month_es.index(f"{user_input_month}") + 1
+    df_events['month_id'] = month_es.index(f"{user_input_month}") + 1 # change language object; 'es' as default
 
     df_events['day'] = df_events['day'].str.pad(width=2, fillchar='0')
     df_events['month_id'] = df_events['month_id'].astype(str).str.pad(width=2, fillchar='0')
