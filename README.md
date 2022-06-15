@@ -8,7 +8,7 @@ E, além de abordar o factual, uma das missões do jornalismo é explicar, lembr
 Este projeto não checa as informações, e sim reúne e facilita o acesso ao conteúdo de fatos e datas comemorativas, disponível na plataforma colaborativa.
 
 ### Quem
-Este projeto foi desenvolvido por Gabriela Caesar para o trabalho no Google Trends e o Master no Insper. Ele também contou com a ajuda do professor Tiago Maranhao ([@tiagombp]((https://github.com/tiagombp)).
+Este projeto foi desenvolvido por Gabriela Caesar para o trabalho no Google Trends e o Master no Insper. Ele também contou com a ajuda dos professores Tiago Maranhao ([@tiagombp]((https://github.com/tiagombp)) e Vinicius Sueiro.
 
 ### Como
 - Os dados são da seção 'Feriados e eventos cíclicos', disponível na página de cada dia na Wikipédia
