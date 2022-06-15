@@ -5,7 +5,7 @@ let optionMonth = document.querySelector('#month')
 // fetch
 function definirOutput() {
   
-  if (optionLanguage.value in ['en', 'pt', 'de', 'es']){
+  if (['en', 'pt', 'de', 'es'].includes(optionLanguage.value){
   
   let url = `./data/${optionLanguage.value}-${optionMonth.value}-content.json`;
   console.log(url)
