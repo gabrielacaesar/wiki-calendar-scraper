@@ -10,8 +10,6 @@ lang_list =
 
 // fetch
 function definirOutput() {
-
-  let url;
   
   if (optionLanguage.value in ['en', 'pt', 'de', 'es']){
   
