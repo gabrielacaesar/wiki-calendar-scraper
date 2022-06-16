@@ -1,4 +1,4 @@
-# Efemérides
+# Wiki Calendar
 
 ### Por quê
 Este projeto foi inspirado no livro "Datas e fatos - 365 dias de história para alegria dos pauteiros", um dos primeiros que comprei quando decidi estudar jornalismo. 
