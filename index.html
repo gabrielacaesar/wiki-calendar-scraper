@@ -1,41 +1,63 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Calendar</title>
+  <title>Wiki Calendar</title>
+	<link rel="stylesheet" href="styles.css">
+	<meta name="author" content="Gabriela Caesar">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="calculadora, insper">
+	<meta name="description" content="Events, feriados, eventos cíclicos, holidays, observances, feiertag, gedenktage, celebraciones">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1>Home</h1>
-  <p>Hi!</p>
-	
-  <select id="language" required="required" onchange="definirOutput()">
-    <option selected value="blank">--Select language--</option>
-    <option value="en">English</option>
-    <option value="pt">Portuguese</option>
-    <option value="de">German</option>
-    <option value="es">Spanish</option>
-    <!--<option value="fr">French</option>
-    <option value="it">Italian</option>
-    <option value="du">Dutch</option>-->
-  </select>
-                
-  <select id="month" required="required" onchange="definirOutput()">
-    <option selected value="blank">--Select month--</option>
-    <option value="01">January</option>
-    <option value="02">February</option>
-    <option value="03">March</option>
-    <option value="04">April</option>
-    <option value="05">May</option>
-    <option value="06">June</option>
-    <option value="07">July</option>
-    <option value="08">August</option>
-    <option value="09">September</option>
-    <option value="10">October</option>
-    <option value="11">November</option>
-    <option value="12">December</option>
-  </select>
-	
+  <section class="flex title-area">
+    <h1>Wiki Calendar</h1>
+    <span class="dash"></span>
+    <p class="date">Dados coletados da Wikipédia em 15/06/2022</p>
+    <p class="handle"><a href="https://twitter.com/gabrielacaesar" target="_blank">@gabrielacaesar</a></p>
+  </section>
+  <section class="flex about-area">
+    <p>Este projeto foi inspirado no livro "Datas e fatos - 365 dias de história para alegria dos pauteiros", um dos primeiros que comprei quando decidi estudar jornalismo.</p>
+    <p>E, além de abordar o factual, uma das missões do jornalismo é explicar, lembrar, destacar fatos e informações. As efemérides ajudam os jornalistas nisso. A pauta ganha mais força para ter um porquê de ser publicada naquele dia.</p>
+    <p>Este projeto não checa as informações, e sim reúne e facilita o acesso ao conteúdo de fatos e datas comemorativas, disponível na plataforma colaborativa.</p>
+  </section>
+  <section class="flex select-area">
+    <select id="language" required="required" onchange="definirOutput()">
+      <option selected value="blank">--Selecione o idioma--</option>
+      <option value="en">English</option>
+      <option value="pt">Portuguese</option>
+      <option value="de">German</option>
+      <option value="es">Spanish</option>
+      <!--<option value="fr">French</option>
+      <option value="it">Italian</option>
+      <option value="du">Dutch</option>-->
+    </select>
+                  
+    <select id="month" required="required" onchange="definirOutput()">
+      <option selected value="blank">--Selecione o mês--</option>
+      <option value="01">January</option>
+      <option value="02">February</option>
+      <option value="03">March</option>
+      <option value="04">April</option>
+      <option value="05">May</option>
+      <option value="06">June</option>
+      <option value="07">July</option>
+      <option value="08">August</option>
+      <option value="09">September</option>
+      <option value="10">October</option>
+      <option value="11">November</option>
+      <option value="12">December</option>
+    </select>
+</section>
+<section class="flex output-area">
   <ul></ul>
+</section>
 
+<footer class="flex">
+  <p>Este projeto está disponível no <a href="https://github.com/gabrielacaesar/wiki-calendar-scraper" target="_blank">GitHub</a>.</p>
+</footer>
   <script src="script.js"></script>
 </body>
 </html>

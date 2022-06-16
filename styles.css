@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@300;600;800&family=Public+Sans:wght@300;600;900&display=swap');
+
+* {
+	margin: 0;
+	font-family: 'Noto Serif', sans-serif;
+	box-sizing: border-box;
+	background-color: #18a3d1;
+}
+
+h1 {
+	text-align: center;
+	font-size: 40px;
+}
+
+section {
+    padding: 0 30%;
+}
+
+p {
+    padding-top: 2%;
+}
+
+a {
+    color: blue;
+}
+
+ul {
+    padding: 0;
+    max-width: 100%;
+}
+
+li {
+    list-style-type: none;
+}
+
+.flex {
+	display: flex;
+}
+
+/* sections area */
+.title-area, .about-area, footer {
+    flex-direction: column;
+    justify-content: center;
+}
+
+.select-area {
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.select-area, .title-area, .output-area {
+    padding-top: 3%;
+}
+
+/* below title area */
+.title-area > .date {
+    text-align: center;
+}
+
+.title-area > .handle {
+    text-align: right;
+}
+
+/* footer */
+footer > p {
+    text-align: center;
+    padding-bottom: 2%;
+}
+
+/* h1 dash */
+.dash {
+    height: 1px;
+    width: 100%;
+    background-color: white;
+}
