@@ -2,18 +2,16 @@
 let optionLanguage = document.querySelector('#language')
 let optionMonth = document.querySelector('#month')
 
-console.log(optionLanguage.value)
-
 // fetch
 function definirOutput() {
-  
+  // condicao: checa se lang e month estao selecionados
   if (optionLanguage.value != 'blank' && optionMonth.value != 'blank'){
-  
+  // acessa arquivo estatico
   let url = `./data/${optionLanguage.value}-${optionMonth.value}-content.json`;
-  console.log(url)
       // esperar carregar para o console.log
   fetch(url).then(
     function(resposta){
+      // retorna json
       return resposta.json()
     }
   ).then(
@@ -25,25 +23,25 @@ function definirOutput() {
         let int_key = parseInt(key) // por conta do formato do json
         let row = data[int_key] // idem
         let efemeride = '<li><a href="' + row.url + '" target="_blank">' + row.date + '</a> - ' + row.event + '</li>';
-        html += efemeride
+        html += efemeride // para cada item add no html
       }
-      // insere dentro do ul no html
+      // insere dentro da ul no html
       document.querySelector('ul').innerHTML = html
-      console.log(data);
     }
   )
   }else{
-    console.log('nao rolou!')
+    console.log('falta selecionar!')
   }
 }
 
 // funcao para limpar resultado
 function limparResultado() {
+  // condicao: se um dos select tiver valor 'blank'
   if (optionLanguage.value == 'blank' || optionMonth.value == 'blank'){
-    html = ''
-    document.querySelector('ul').innerHTML = html
+    html = '' // limpa html
+    document.querySelector('ul').innerHTML = html // adiciona dentro de ul
   }else{
-    console.log('limpei!')
+    console.log('nao foi blank!')
  }
 }
 
