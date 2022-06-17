@@ -12,7 +12,7 @@ h1 {
 	font-size: 40px;
 }
 
-section {
+section, footer {
     padding: 0 30%;
 }
 
@@ -62,9 +62,13 @@ li {
 }
 
 /* footer */
-footer > p {
-    text-align: center;
+footer:first-child {
     padding-bottom: 2%;
+    text-align: left;
+}
+
+footer > p:nth-child(2) {
+    text-align: center;
 }
 
 /* h1 dash */
@@ -73,3 +77,15 @@ footer > p {
     width: 100%;
     background-color: white;
 }
+
+/* both select */
+#language, #month {
+    border: 1px solid white;
+}
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    section, footer {
+        padding: 0 8%;
+    }
+  }
