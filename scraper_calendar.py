@@ -69,9 +69,14 @@ def get_events(user_input_month, user_input_lang):
     df_events['day'] = df_events['day'].str.pad(width=2, fillchar='0')
     df_events['month_id'] = df_events['month_id'].astype(str).str.pad(width=2, fillchar='0')
     df_events['format_date'] = df_events['month_id'].astype(str) + "/" + df_events['day'].astype(str)
-    df_events.drop(['month', 'day', 'date'], inplace=True, axis=1) 
+    df_events.drop(['month', 'day', 'date'], inplace=True, axis=1)
+
+    if user_input_lang == 'it':
+      df_events['date_clean'] = df_events['date_clean'].str.replace('%C2%BA', '')
+    else: 
+      print('not italian')
 
     #arquivo = df_events.to_csv(f"content_{user_input_lang}_{user_input_month}.csv", encoding='utf-8', index=False)
-    json_events = df_events.to_json(f"{user_input_lang}-{df_events['month_id'].values[0]}-content.json", orient="records", date_format="iso")
+    #json_events = df_events.to_json(f"{user_input_lang}-{df_events['month_id'].values[0]}-content.json", orient="records", date_format="iso")
     
-  return json_events
+  return df_events
