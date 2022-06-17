@@ -55,13 +55,11 @@ def get_events(user_input_month, user_input_lang):
     df_events = pd.DataFrame(dic_events)
 
     df_events['date'] = df_events['url'].str.replace(f'http://{user_input_lang}.wikipedia.org/wiki/', '')
+    df_events['date_clean'] = df_events['date'].str.replace('_', ' ')
     if user_input_lang in ['en', 'de', 'fr', 'it', 'nl']:
-      df_events['date_clean'] = df_events['date'].str.replace('_', ' ')
       df_events[['month', 'day']] = df_events['date_clean'].str.split(expand = True)
     elif user_input_lang in ['pt', 'es']:
-      df_events['date_clean'] = df_events['date'].str.replace('_de_', ' ')
-      df_events[['day', 'month']] = df_events['date_clean'].str.split(expand = True)
-      df_events['date'] = df_events['date'].str.replace('_', ' ')
+      df_events[['day', 'month']] = df_events['date_clean'].str.replace(' de ', ' ').str.split(expand = True)
     else:
       print('other lang')
       
